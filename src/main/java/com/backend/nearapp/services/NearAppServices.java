@@ -88,7 +88,7 @@ public interface NearAppServices {
      * @return Producto asociado a la publicación específicada
      * @throws NearAppServicesException
      */
-    Product getProductByPublicationId(int publicacionId) throws NearAppServicesException;
+    Product getProductById(int publicacionId) throws NearAppServicesException;
 
     //CATEGORIAS
 
