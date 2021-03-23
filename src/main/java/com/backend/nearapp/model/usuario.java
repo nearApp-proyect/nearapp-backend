@@ -9,7 +9,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="usuario")
-public class usuario {
+
+public class Usuario {
+  
 	@Id
 	private String nickname;
 	private String tdocumento;
@@ -74,7 +76,6 @@ public class usuario {
 	}
 	public String ciudad;
 	public String celular;
-	public String password;
-	
+	public String password;	
 	
 }
