@@ -10,7 +10,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="comentario")
+
 public class Comentario {
+
 	
 	@Id
 	@GeneratedValue( strategy=GenerationType.AUTO )

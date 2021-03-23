@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tipoPublicacion")
+
 public class TipoPublicacion {
 	
 	@Id

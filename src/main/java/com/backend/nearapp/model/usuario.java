@@ -1,16 +1,17 @@
 package com.backend.nearapp.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
+
 
 
 
 @Entity
 @Table(name="usuario")
-<<<<<<< Updated upstream
-public class usuario {
-=======
+
 public class Usuario {
+  
 	@Id
 	private String nickname;
 	private String tdocumento;
@@ -75,14 +76,6 @@ public class Usuario {
 	}
 	public String ciudad;
 	public String celular;
-	public String password;
->>>>>>> Stashed changes
-	
-	public String nickname;
-	public String tdocumento;
-	public int documento;
-	public String nombre;
-	public String apellido;
-	public String direccion;
+	public String password;	
 	
 }

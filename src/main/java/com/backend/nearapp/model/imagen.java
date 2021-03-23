@@ -8,6 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="imagen")
+
 public class Imagen {
 	
 	@Id
