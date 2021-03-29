@@ -79,7 +79,7 @@ public interface NearAppServices {
      * @return Producto especificado por id
      * @throws NearAppServicesException
      */
-    Product getProductById(int id) throws NearAppServicesException;
+    Producto getProductById(int id) throws NearAppServicesException;
 
     /**
      * Retorna el producto asociado a una publicación
@@ -88,7 +88,7 @@ public interface NearAppServices {
      * @return Producto asociado a la publicación específicada
      * @throws NearAppServicesException
      */
-    Product getProductByPublicationId(int publicacionId) throws NearAppServicesException;
+    Producto getProductByPublicationId(int publicacionId) throws NearAppServicesException;
 
     //CATEGORIAS
 
@@ -142,7 +142,7 @@ public interface NearAppServices {
      * @return Publicación especificada por id
      * @throws NearAppServicesException
      */
-    Publicación getPublicacionById(int id) throws NearAppServicesException;
+    Publicacion getPublicacionById(int id) throws NearAppServicesException;
 
     /**
      * Retorna todos las publicaciones de un usuario específico

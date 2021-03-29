@@ -79,7 +79,7 @@ public interface NearAppPersistence {
      * @return Producto especificado por id
      * @throws NearAppPersistenceException
      */
-    Product getProductById(int id) throws NearAppPersistenceException;
+    Producto getProductById(int id) throws NearAppPersistenceException;
 
     /**
      * Retorna el producto asociado a una publicación
@@ -88,7 +88,7 @@ public interface NearAppPersistence {
      * @return Producto asociado a la publicación específicada
      * @throws NearAppPersistenceException
      */
-    Product getProductByPublicationId(int publicacionId) throws NearAppPersistenceException;
+    Producto getProductByPublicationId(int publicacionId) throws NearAppPersistenceException;
 
     //CATEGORIAS
 
@@ -142,7 +142,7 @@ public interface NearAppPersistence {
      * @return Publicación especificada por id
      * @throws NearAppPersistenceException
      */
-    Publicación getPublicacionById(int id) throws NearAppPersistenceException;
+    Publicacion getPublicacionById(int id) throws NearAppPersistenceException;
 
     /**
      * Retorna todos las publicaciones de un usuario específico

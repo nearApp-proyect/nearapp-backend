@@ -32,6 +32,9 @@ public class Usuario {
 	private List<Chat> chatEmi;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioReceptor")
 	private List<Chat> chatRecep;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+	private List<PublicacionGusto> publicacionGustos;
+		
 	
 	public String getNickname() {
 		return nickname;

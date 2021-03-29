@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +16,9 @@ public class Imagen {
 	@GeneratedValue( strategy=GenerationType.AUTO )
 	private int id;
 	private String imagen;
-	private int idPublicacion;
+	@ManyToOne
+    @JoinColumn(name = "publicacion", nullable = false, updatable = false)
+	private Publicacion publicacion;
 	
 	public int getId() {
 		return id;
@@ -28,10 +32,10 @@ public class Imagen {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-	public int getIdPublicacion() {
-		return idPublicacion;
+	public Publicacion getIdPublicacion() {
+		return publicacion;
 	}
-	public void setIdPublicacion(int idPublicacion) {
-		this.idPublicacion = idPublicacion;
+	public void setIdPublicacion(Publicacion idPublicacion) {
+		this.publicacion = idPublicacion;
 	}
 }
