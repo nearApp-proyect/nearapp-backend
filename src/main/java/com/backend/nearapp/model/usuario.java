@@ -1,7 +1,11 @@
 package com.backend.nearapp.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -9,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="usuario")
-public class usuario {
+public class Usuario {
 	@Id
 	private String nickname;
 	private String tdocumento;
@@ -17,6 +21,17 @@ public class usuario {
 	private String nombre;
 	private String apellido;
 	private String direccion;
+	public String ciudad;
+	public String celular;
+	public String password;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+	private List<Publicacion> publicacion;	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+	private List<Comentario> cometario;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioEmisor")
+	private List<Chat> chatEmi;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioReceptor")
+	private List<Chat> chatRecep;
 	
 	public String getNickname() {
 		return nickname;
@@ -72,9 +87,28 @@ public class usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String ciudad;
-	public String celular;
-	public String password;
-	
-	
+	public List<Publicacion> getPublicacion() {
+		return publicacion;
+	}
+	public void setPublicacion(List<Publicacion> publicacion) {
+		this.publicacion = publicacion;
+	}
+	public List<Comentario> getCometario() {
+		return cometario;
+	}
+	public void setCometario(List<Comentario> cometario) {
+		this.cometario = cometario;
+	}
+	public List<Chat> getChatEmi() {
+		return chatEmi;
+	}
+	public void setChatEmi(List<Chat> chatEmi) {
+		this.chatEmi = chatEmi;
+	}
+	public List<Chat> getChatRecep() {
+		return chatRecep;
+	}
+	public void setChatRecep(List<Chat> chatRecep) {
+		this.chatRecep = chatRecep;
+	}
 }

@@ -1,16 +1,21 @@
 package com.backend.nearapp.model;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="publicacion")
-public class publicacion {
+public class Publicacion {
 	
 	@Id
 	@GeneratedValue( strategy=GenerationType.AUTO )
@@ -22,7 +27,11 @@ public class publicacion {
 	private String ciudad;
 	private int idTipoPublicacion;
 	private int idTipoProducto;
-	private String usuario;
+	@ManyToOne
+    @JoinColumn(name = "usuario", nullable = false, updatable = false)
+	private Usuario usuario;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "publicacion")
+	private List<Comentario> cometarios; 
 	
 	public int getIdPublicacion() {
 		return idPublicacion;
@@ -72,12 +81,16 @@ public class publicacion {
 	public void setIdTipoProducto(int idTipoProducto) {
 		this.idTipoProducto = idTipoProducto;
 	}
-	public String getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(String usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
-	
+	public List<Comentario> getCometarios() {
+		return cometarios;
+	}
+	public void setCometarios(List<Comentario> cometarios) {
+		this.cometarios = cometarios;
+	}
 }
