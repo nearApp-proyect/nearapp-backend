@@ -25,7 +25,6 @@ public class Usuario {
 	private String direccion;
 	private String ciudad;
 	private String celular;
-	private String password;
 
 	public String getNickname() {
 		return nickname;
@@ -75,12 +74,6 @@ public class Usuario {
 	}
 	public void setCelular(String celular) {
 		this.celular = celular;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 		
 	
