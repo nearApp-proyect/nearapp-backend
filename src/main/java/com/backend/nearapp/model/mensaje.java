@@ -25,6 +25,8 @@ public class Mensaje {
     @JoinColumn(name = "chat", nullable = false, updatable = false)
 	private Chat chat;
 	
+	private int chat;
+	
 	public int getIdMensaje() {
 		return idMensaje;
 	}

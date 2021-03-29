@@ -8,8 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-
+import com.backend.nearapp.model.*;
 
 @Entity
 @Table(name="usuario")
@@ -34,8 +33,7 @@ public class Usuario {
 	private List<Chat> chatRecep;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
 	private List<PublicacionGusto> publicacionGustos;
-		
-	
+
 	public String getNickname() {
 		return nickname;
 	}
@@ -45,6 +43,7 @@ public class Usuario {
 	public String getTdocumento() {
 		return tdocumento;
 	}
+	
 	public void setTdocumento(String tdocumento) {
 		this.tdocumento = tdocumento;
 	}

@@ -39,7 +39,7 @@ public class Publicacion {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "publicacion")
 	private List<Imagen> imagenes; 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "publicacion")
-	private List<PublicacionGusto> publicacionGustos;
+	private List<PublicacionGusto> publicacionGustos;	
 	
 	public int getIdPublicacion() {
 		return idPublicacion;
