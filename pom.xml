@@ -19,6 +19,7 @@
 		<sonar.projectKey>nearApp-proyect_nearapp-backend</sonar.projectKey>
 	  	<sonar.organization>nearapp-proyect</sonar.organization>
 	  	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	  	
 	</properties>
 	<dependencies>
 		<dependency>
