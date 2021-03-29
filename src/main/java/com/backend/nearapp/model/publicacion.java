@@ -15,7 +15,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="publicacion")
-
 public class Publicacion {
 	
 	@Id
@@ -26,11 +25,21 @@ public class Publicacion {
 	private String description;
 	private int precio;
 	private String ciudad;
-	private int idTipoPublicacion;
-	private int idTipoProducto;
-	
-	private String usuario;
-	
+	@ManyToOne
+    @JoinColumn(name = "tipoProducto", nullable = false, updatable = false)
+	private Producto tipoProducto;
+	@ManyToOne
+    @JoinColumn(name = "tipoPublicacion", nullable = false, updatable = false)
+	private TipoPublicacion tipoPublicacion;
+	@ManyToOne
+    @JoinColumn(name = "usuario", nullable = false, updatable = false)
+	private Usuario usuario;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "publicacion")
+	private List<Comentario> cometarios; 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "publicacion")
+	private List<Imagen> imagenes; 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "publicacion")
+	private List<PublicacionGusto> publicacionGustos;	
 	
 	public int getIdPublicacion() {
 		return idPublicacion;
@@ -68,24 +77,28 @@ public class Publicacion {
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
-	public int getIdTipoPublicacion() {
-		return idTipoPublicacion;
+	public TipoPublicacion getIdTipoPublicacion() {
+		return tipoPublicacion;
 	}
-	public void setIdTipoPublicacion(int idTipoPublicacion) {
-		this.idTipoPublicacion = idTipoPublicacion;
+	public void setIdTipoPublicacion(TipoPublicacion tipoPublicacion) {
+		this.tipoPublicacion = tipoPublicacion;
 	}
-	public int getIdTipoProducto() {
-		return idTipoProducto;
+	public Producto getTipoProducto() {
+		return tipoProducto;
 	}
-	public void setIdTipoProducto(int idTipoProducto) {
-		this.idTipoProducto = idTipoProducto;
+	public void setTipoProducto(Producto tipoProducto) {
+		this.tipoProducto = tipoProducto;
 	}
-	public String getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(String usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
-	
+	public List<Comentario> getCometarios() {
+		return cometarios;
+	}
+	public void setCometarios(List<Comentario> cometarios) {
+		this.cometarios = cometarios;
+	}
 }

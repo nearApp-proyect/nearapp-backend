@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="mensaje")
-
 public class Mensaje {
 	
 	@Id
@@ -22,6 +21,9 @@ public class Mensaje {
 	private Date fecha;
 	private String userReceptor;
 	private String userEmisor;
+	@ManyToOne
+    @JoinColumn(name = "chat", nullable = false, updatable = false)
+	private Chat chat;
 	
 	private int chat;
 	
@@ -31,10 +33,10 @@ public class Mensaje {
 	public void setIdMensaje(int idMensaje) {
 		this.idMensaje = idMensaje;
 	}
-	public int getChat() {
+	public Chat getChat() {
 		return chat;
 	}
-	public void setChat(int chat) {
+	public void setChat(Chat chat) {
 		this.chat = chat;
 	}
 	public String getDescripcion() {
@@ -61,6 +63,4 @@ public class Mensaje {
 	public void setUserEmisor(String userEmisor) {
 		this.userEmisor = userEmisor;
 	}
-	
-	
 }
