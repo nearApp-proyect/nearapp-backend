@@ -28,11 +28,9 @@ public class Publicacion {
 	private String ciudad;
 	private int idTipoPublicacion;
 	private int idTipoProducto;
-	@ManyToOne
-    @JoinColumn(name = "usuario", nullable = false, updatable = false)
-	private Usuario usuario;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "publicacion")
-	private List<Comentario> cometarios; 
+	
+	private String usuario;
+	
 	
 	public int getIdPublicacion() {
 		return idPublicacion;
@@ -82,10 +80,10 @@ public class Publicacion {
 	public void setIdTipoProducto(int idTipoProducto) {
 		this.idTipoProducto = idTipoProducto;
 	}
-	public Usuario getUsuario() {
+	public String getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 	

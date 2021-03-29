@@ -20,14 +20,8 @@ public class Chat {
 	@Id
 	@GeneratedValue( strategy=GenerationType.AUTO )
 	private int idChat;
-	@ManyToOne
-    @JoinColumn(name = "usuarioReceptor", nullable = false, updatable = false)
-	private Usuario usuarioReceptor;
-	@ManyToOne
-    @JoinColumn(name = "usuarioEmisor", nullable = false, updatable = false)
-	private Usuario usuarioEmisor;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "chat")
-	private List<Mensaje> chats;
+	private String usuarioReceptor;	
+	private String usuarioEmisor;
 	
 	public int getIdChat() {
 		return idChat;
@@ -35,16 +29,16 @@ public class Chat {
 	public void setIdChat(int idChat) {
 		this.idChat = idChat;
 	}
-	public Usuario getUsuarioReceptor() {
+	public String getUsuarioReceptor() {
 		return usuarioReceptor;
 	}
-	public void setUsuarioReceptor(Usuario usuarioReceptor) {
+	public void setUsuarioReceptor(String usuarioReceptor) {
 		this.usuarioReceptor = usuarioReceptor;
 	}
-	public Usuario getUsuarioEmisor() {
+	public String getUsuarioEmisor() {
 		return usuarioEmisor;
 	}
-	public void setUsuarioEmisor(Usuario usuarioEmisor) {
+	public void setUsuarioEmisor(String usuarioEmisor) {
 		this.usuarioEmisor = usuarioEmisor;
 	}
 	

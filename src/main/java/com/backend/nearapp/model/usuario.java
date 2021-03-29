@@ -26,14 +26,6 @@ public class Usuario {
 	private String ciudad;
 	private String celular;
 	private String password;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
-	private List<Publicacion> publicacion;	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
-	private List<Comentario> cometario;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioEmisor")
-	private List<Chat> chatEmi;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioReceptor")
-	private List<Chat> chatRecep;
 
 	public String getNickname() {
 		return nickname;
@@ -44,12 +36,7 @@ public class Usuario {
 	public String getTdocumento() {
 		return tdocumento;
 	}
-	public List<Publicacion> getPublicacion() {
-		return publicacion;
-	}
-	public void setPublicacion(List<Publicacion> publicacion) {
-		this.publicacion = publicacion;
-	}
+	
 	public void setTdocumento(String tdocumento) {
 		this.tdocumento = tdocumento;
 	}

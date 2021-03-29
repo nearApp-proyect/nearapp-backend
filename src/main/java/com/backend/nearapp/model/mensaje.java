@@ -22,9 +22,8 @@ public class Mensaje {
 	private Date fecha;
 	private String userReceptor;
 	private String userEmisor;
-	@ManyToOne
-    @JoinColumn(name = "chat", nullable = false, updatable = false)
-	private Chat chat;
+	
+	private int chat;
 	
 	public int getIdMensaje() {
 		return idMensaje;
@@ -32,10 +31,10 @@ public class Mensaje {
 	public void setIdMensaje(int idMensaje) {
 		this.idMensaje = idMensaje;
 	}
-	public Chat getChat() {
+	public int getChat() {
 		return chat;
 	}
-	public void setChat(Chat chat) {
+	public void setChat(int chat) {
 		this.chat = chat;
 	}
 	public String getDescripcion() {

@@ -21,12 +21,10 @@ public class Comentario {
 	private int id;
 	private Date fecha;
 	private String descripcion;
-	@ManyToOne
-    @JoinColumn(name = "publicacion", nullable = false, updatable = false)
-	private Publicacion publicacion;
-	@ManyToOne
-    @JoinColumn(name = "usuario", nullable = false, updatable = false)
-	private Usuario usuario;
+	
+	private int publicacion;
+	
+	private String usuario;
 	
 	public int getId() {
 		return id;
@@ -34,16 +32,16 @@ public class Comentario {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Usuario getUsuario() {
+	public String getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public Publicacion getPublicacion() {
+	public int getPublicacion() {
 		return publicacion;
 	}
-	public void setPublicacion(Publicacion publicacion) {
+	public void setPublicacion(int publicacion) {
 		this.publicacion = publicacion;
 	}
 	public Date getFecha() {
