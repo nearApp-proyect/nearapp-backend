@@ -1,11 +1,15 @@
 package com.backend.nearapp.model;
 
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-
+import com.backend.nearapp.model.*;
 
 @Entity
 @Table(name="usuario")
@@ -19,7 +23,18 @@ public class Usuario {
 	private String nombre;
 	private String apellido;
 	private String direccion;
-	
+	private String ciudad;
+	private String celular;
+	private String password;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+	private List<Publicacion> publicacion;	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+	private List<Comentario> cometario;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioEmisor")
+	private List<Chat> chatEmi;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioReceptor")
+	private List<Chat> chatRecep;
+
 	public String getNickname() {
 		return nickname;
 	}
@@ -28,6 +43,12 @@ public class Usuario {
 	}
 	public String getTdocumento() {
 		return tdocumento;
+	}
+	public List<Publicacion> getPublicacion() {
+		return publicacion;
+	}
+	public void setPublicacion(List<Publicacion> publicacion) {
+		this.publicacion = publicacion;
 	}
 	public void setTdocumento(String tdocumento) {
 		this.tdocumento = tdocumento;
@@ -74,8 +95,6 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String ciudad;
-	public String celular;
-	public String password;	
+		
 	
 }

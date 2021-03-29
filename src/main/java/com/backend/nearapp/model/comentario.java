@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,10 +19,14 @@ public class Comentario {
 	@Id
 	@GeneratedValue( strategy=GenerationType.AUTO )
 	private int id;
-	private String usuario;
-	private int publicacion;
 	private Date fecha;
 	private String descripcion;
+	@ManyToOne
+    @JoinColumn(name = "publicacion", nullable = false, updatable = false)
+	private Publicacion publicacion;
+	@ManyToOne
+    @JoinColumn(name = "usuario", nullable = false, updatable = false)
+	private Usuario usuario;
 	
 	public int getId() {
 		return id;
@@ -28,16 +34,16 @@ public class Comentario {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(String usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	public int getPublicacion() {
+	public Publicacion getPublicacion() {
 		return publicacion;
 	}
-	public void setPublicacion(int publicacion) {
+	public void setPublicacion(Publicacion publicacion) {
 		this.publicacion = publicacion;
 	}
 	public Date getFecha() {

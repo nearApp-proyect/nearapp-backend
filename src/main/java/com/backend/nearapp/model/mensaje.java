@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,11 +18,13 @@ public class Mensaje {
 	@Id
 	@GeneratedValue( strategy=GenerationType.AUTO )
 	private int idMensaje;
-	private int chat;
 	private String descripcion;
 	private Date fecha;
 	private String userReceptor;
 	private String userEmisor;
+	@ManyToOne
+    @JoinColumn(name = "chat", nullable = false, updatable = false)
+	private Chat chat;
 	
 	public int getIdMensaje() {
 		return idMensaje;
@@ -28,10 +32,10 @@ public class Mensaje {
 	public void setIdMensaje(int idMensaje) {
 		this.idMensaje = idMensaje;
 	}
-	public int getChat() {
+	public Chat getChat() {
 		return chat;
 	}
-	public void setChat(int chat) {
+	public void setChat(Chat chat) {
 		this.chat = chat;
 	}
 	public String getDescripcion() {
