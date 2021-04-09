@@ -35,6 +35,8 @@ public class NearAppPersistenceImpl implements NearAppPersistence {
     @Autowired
     private PublicacionRepo publicacionRepo;
 
+    //USUARIOS
+
     @Override
     public void addUser(Usuario user) throws NearAppPersistenceException {
         if (user == null) {
@@ -115,6 +117,63 @@ public class NearAppPersistenceImpl implements NearAppPersistence {
         usuario.setTdocumento(user.getTdocumento());
         userRepo.save(usuario);
     }
+
+    //PRODUCTOS
+
+    @Override
+    public void addProduct(Producto producto) throws NearAppPersistenceException {
+        productoRepo.save(producto);
+    }
+
+    @Override
+    public List<Producto> getAllProducts() throws NearAppPersistenceException {
+        if (productoRepo.count() == 0) {
+            throw new NearAppPersistenceException("No existen productos.");
+        }
+        return productoRepo.findAll();
+    }
+
+    @Override
+    public Producto getProductById(int id) throws NearAppPersistenceException {
+        Producto producto = null;
+        if (productoRepo.existsById(id)) {
+            producto = productoRepo.findById(id).get();
+        }
+        if (producto == null) {
+            throw new NearAppPersistenceException("El Producto con ese ID no existe");
+        }
+        return producto;
+    }
+
+    //CATEGORIAS
+
+    @Override
+    public void addCategoria(Categoria categoria) throws NearAppPersistenceException {
+        categoriaRepo.save(categoria);
+    }
+
+    @Override
+    public List<Categoria> getAllCategorias() throws NearAppPersistenceException {
+        if (categoriaRepo.count() == 0) {
+            throw new NearAppPersistenceException("No existen categorias.");
+        }
+        return categoriaRepo.findAll();
+    }
+
+    @Override
+    public Categoria getCategoriaById(int id) throws NearAppPersistenceException {
+        Categoria categoria = null;
+        if (categoriaRepo.existsById(id)) {
+            categoria = categoriaRepo.findById(id).get();
+        }
+        if (categoria == null) {
+            throw new NearAppPersistenceException("La categoría con ese ID no existe");
+        }
+        return categoria;
+    }
+    
+
+
 
 
 }
