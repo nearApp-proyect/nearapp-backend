@@ -1,10 +1,8 @@
 package com.backend.nearapp.services.impl;
 
 import com.backend.nearapp.model.*;
-import com.backend.nearapp.persistence.NearAppPersistence;
-import com.backend.nearapp.persistence.NearAppPersistenceException;
-import com.backend.nearapp.services.NearAppServicesException;
-import com.backend.nearapp.services.NearAppServices;
+import com.backend.nearapp.persistence.repo.UsuarioRepo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,9 +12,11 @@ import java.util.List;
 @Service
 public interface NearAppServicesImpl implements NearAppServices {
 
-    @Autowired
-    private NearAppPersistence nearAppPersistence;
-
+    @Autowired 
+    UsuarioRepo userrepo;
+    
+    
+    
     @Override
     public void addUser(Usuario user) throws NearAppServicesException {
         try {

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import com.backend.nearapp.model.*;
 
 @Entity
-@Table(name="usuario")
+@Table(name="Usuario")
 public class Usuario {
 	@Id
 	private String nickname;
