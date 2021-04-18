@@ -8,52 +8,7 @@ import java.util.List;
 @Service
 public interface NearAppServices {
 
-    //USUARIOS
-
-    /**
-     * Registra un usuario en la DB
-     *
-     * @param user Usuario que se ingresa
-     * @throws NearAppServicesException
-     */
-    void addUser(Usuario user) throws NearAppServicesException;
-
-
-    /**
-     * Retorna todos los usuarios registrados
-     *
-     * @return Lista de usuarios registrados en la DB
-     * @throws NearAppServicesException
-     */
-    List<Usuario> getAllUsers() throws NearAppServicesException;
     
-    /**
-     * Retorna un usuario por id
-     *
-     * @param id Id del usuario a buscar
-     * @return Usuario especificado por id
-     * @throws NearAppServicesException
-     */
-    Usuario getUserById(int id) throws NearAppServicesException;
-
-    /**
-     * Retorna un usuario por nickname
-     *
-     * @param nickname nickname del usuario a buscar
-     * @return Usuario especificado por id
-     * @throws NearAppServicesException
-     */
-    Usuario getUserByNickname(String nickname) throws NearAppServicesException;
-
-    /**
-     * Modifica o actualiza datos de un usuario en la DB
-     *
-     * @param id Id del usuario a modificar
-     * @param user Nuevo objeto usuario actualizado
-     * @throws NearAppServicesException
-     */
-    void modifyUser(Usuario user, int id) throws NearAppServicesException;
-
     //PRODUCTOS
 
     /**

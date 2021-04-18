@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="mensaje")
+@Table(name="Mensaje")
 public class Mensaje {
 	
 	@Id
@@ -24,8 +24,6 @@ public class Mensaje {
 	@ManyToOne
     @JoinColumn(name = "chat", nullable = false, updatable = false)
 	private Chat chat;
-	
-	private int chat;
 	
 	public int getIdMensaje() {
 		return idMensaje;

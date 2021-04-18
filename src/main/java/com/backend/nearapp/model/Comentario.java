@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="comentario")
+@Table(name="Comentario")
 public class Comentario {
 	
 	@Id
@@ -26,9 +26,6 @@ public class Comentario {
     @JoinColumn(name = "usuario", nullable = false, updatable = false)
 	private Usuario usuario;
 	
-	private int publicacion;
-	
-	private String usuario;
 	
 	public int getId() {
 		return id;
