@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,16 @@ public class UsuarioController {
 	public ResponseEntity<Usuario> getUser(@PathVariable(value="nickname") String nickname){
 		try{
 			return ResponseEntity.ok(userService.getUserByNickname(nickname));
+		}catch(Exception e){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(method = RequestMethod.POST,path="/new")
+	public ResponseEntity<Usuario> saveUser(@RequestBody Usuario user){
+		try{
+			userService.addUser(user);
+			return new ResponseEntity<>(HttpStatus.CREATED);
 		}catch(Exception e){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
