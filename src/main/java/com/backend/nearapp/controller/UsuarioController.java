@@ -49,4 +49,14 @@ public class UsuarioController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@RequestMapping(method= RequestMethod.PUT, path="/update")
+	public ResponseEntity<Usuario> updateUser(@RequestBody Usuario user){
+		try{
+			userService.modifyUser(user);
+			return new ResponseEntity<>(HttpStatus.CREATED);
+		}catch(Exception e){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 }
