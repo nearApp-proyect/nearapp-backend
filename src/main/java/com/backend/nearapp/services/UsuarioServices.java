@@ -12,9 +12,10 @@ public interface UsuarioServices {
      * Registra un usuario en la DB
      *
      * @param user Usuario que se ingresa
+     * @return 
      * @throws NearAppServicesException
      */
-    void addUser(Usuario user) throws NearAppServicesException;
+    Usuario addUser(Usuario user) throws NearAppServicesException;
 
 
     /**
@@ -43,5 +44,8 @@ public interface UsuarioServices {
      * @throws NearAppServicesException
      */
 	void modifyUser(Usuario user) throws NearAppServicesException; 
+	
+	
+	Usuario Login(String nickname, String password) throws NearAppServicesException;
 
 }

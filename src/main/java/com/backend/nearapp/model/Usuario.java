@@ -20,9 +20,10 @@ public class Usuario {
 	private String nombre;
 	private String apellido;
 	private String direccion;
-	public String ciudad;
-	public String celular;
-	public String password;
+	private String ciudad;
+	private String correo;
+	private String celular;
+	private String password;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
 	private List<Publicacion> publicacion;	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
@@ -112,5 +113,11 @@ public class Usuario {
 	}
 	public void setChatRecep(List<Chat> chatRecep) {
 		this.chatRecep = chatRecep;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 }

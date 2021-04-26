@@ -7,11 +7,16 @@ import com.backend.nearapp.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UsuarioRepo extends JpaRepository<Usuario, String>{
 
-	@Query(value="select u.nickname,u.apellido,u.celular,u.ciudad,u.direccion,u.documento,u.nombre,u.tdocumento,u.password from Usuario u where u.nickname= ?1",nativeQuery = true)
+	@Query(value="select u.nickname,u.apellido,u.celular,u.ciudad,u.direccion,u.documento,u.nombre,u.tdocumento,u.password,u.correo from Usuario u where u.nickname= ?1",nativeQuery = true)
 	Usuario getUserByNickname(String nickname);
+	
+	@Query(value="select u.nickname,u.apellido,u.celular,u.ciudad,u.direccion,u.documento,u.nombre,u.tdocumento,u.password,u.correo from Usuario u where u.nickname= ?1 and u.password= ?2",nativeQuery = true)
+	Usuario Login(String nickname,String password);
 	
 	@Transactional
     @Modifying
