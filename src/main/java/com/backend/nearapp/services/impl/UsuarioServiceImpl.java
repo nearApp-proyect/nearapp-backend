@@ -18,10 +18,11 @@ public class UsuarioServiceImpl implements UsuarioServices {
 	UsuarioRepo userRepo;
 	
 	@Override
-	public void addUser(Usuario user) throws NearAppServicesException {
+	public Usuario addUser(Usuario user) throws NearAppServicesException {
 		
 		try {
             userRepo.save(user);
+            return user;
         } catch (Exception ex) {
             throw new NearAppServicesException(ex.getMessage(), ex);
         }
@@ -52,6 +53,15 @@ public class UsuarioServiceImpl implements UsuarioServices {
         } catch (Exception e) {
             throw new NearAppServicesException(e.getMessage(), e);
         }
+	}
+
+	@Override
+	public Usuario Login(String nickname, String password)throws NearAppServicesException{
+		try{
+			return userRepo.Login(nickname, password);			
+		}catch(Exception e){
+			throw new NearAppServicesException(e.getMessage(), e);
+		}
 	}
 
 }
