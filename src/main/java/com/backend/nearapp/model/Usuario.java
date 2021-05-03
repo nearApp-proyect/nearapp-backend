@@ -24,6 +24,7 @@ public class Usuario {
 	private String correo;
 	private String celular;
 	private String password;
+	private String foto;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
 	private List<Publicacion> publicacion;	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
@@ -119,5 +120,11 @@ public class Usuario {
 	}
 	public void setCorreo(String correo) {
 		this.correo = correo;
+	}
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 }

@@ -41,9 +41,10 @@ public interface UsuarioServices {
      *
      * @param id Id del usuario a modificar
      * @param user Nuevo objeto usuario actualizado
+     * @return 
      * @throws NearAppServicesException
      */
-	void modifyUser(Usuario user) throws NearAppServicesException; 
+	Usuario modifyUser(Usuario user) throws NearAppServicesException; 
 	
 	
 	Usuario Login(String nickname, String password) throws NearAppServicesException;

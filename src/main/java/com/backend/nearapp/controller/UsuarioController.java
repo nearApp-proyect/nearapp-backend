@@ -57,8 +57,8 @@ public class UsuarioController {
 	@RequestMapping(method= RequestMethod.PUT, path="/update")
 	public ResponseEntity<Usuario> updateUser(@RequestBody Usuario user){
 		try{
-			userService.modifyUser(user);
-			return new ResponseEntity<>(HttpStatus.CREATED);
+			
+			return ResponseEntity.ok(userService.modifyUser(user));
 		}catch(Exception e){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
