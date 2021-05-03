@@ -47,9 +47,10 @@ public class UsuarioServiceImpl implements UsuarioServices {
 	}
 
 	@Override
-	public void modifyUser(Usuario user) throws NearAppServicesException{
+	public Usuario modifyUser(Usuario user) throws NearAppServicesException{
 		try {
-			userRepo.setUsuario(user.getApellido(), user.getCelular(), user.getCiudad(), user.getDireccion(), user.getNombre(),user.getNickname());
+			userRepo.setUsuario(user.getApellido(), user.getCelular(), user.getCiudad(), user.getDireccion(), user.getNombre(),user.getNickname(), user.getPassword(), user.getCorreo());
+			return user;
         } catch (Exception e) {
             throw new NearAppServicesException(e.getMessage(), e);
         }
