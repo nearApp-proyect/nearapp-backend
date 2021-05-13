@@ -19,8 +19,6 @@ public class TipoPublicacion {
 	private int idTipoPublicacion;
 	private String tipo;
 	private int comision;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoPublicacion")
-	private List<Publicacion> publicacion;
 	
 	public int getIdTipoPublicacion() {
 		return idTipoPublicacion;

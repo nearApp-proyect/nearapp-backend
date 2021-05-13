@@ -16,25 +16,23 @@ public class Mensaje {
 	
 	@Id
 	@GeneratedValue( strategy=GenerationType.AUTO )
-	private int idMensaje;
+	private int id;
 	private String descripcion;
 	private Date fecha;
-	private String userReceptor;
-	private String userEmisor;
-	@ManyToOne
-    @JoinColumn(name = "chat", nullable = false, updatable = false)
-	private Chat chat;
+	private String userreceptor;
+	private String useremisor;
+	private int chat;
 	
 	public int getIdMensaje() {
-		return idMensaje;
+		return id;
 	}
 	public void setIdMensaje(int idMensaje) {
-		this.idMensaje = idMensaje;
+		this.id = idMensaje;
 	}
-	public Chat getChat() {
+	public int getChat() {
 		return chat;
 	}
-	public void setChat(Chat chat) {
+	public void setChat(int chat) {
 		this.chat = chat;
 	}
 	public String getDescripcion() {
@@ -50,15 +48,15 @@ public class Mensaje {
 		this.fecha = fecha;
 	}
 	public String getUserReceptor() {
-		return userReceptor;
+		return userreceptor;
 	}
 	public void setUserReceptor(String userReceptor) {
-		this.userReceptor = userReceptor;
+		this.userreceptor = userReceptor;
 	}
 	public String getUserEmisor() {
-		return userEmisor;
+		return useremisor;
 	}
 	public void setUserEmisor(String userEmisor) {
-		this.userEmisor = userEmisor;
+		this.useremisor = userEmisor;
 	}
 }

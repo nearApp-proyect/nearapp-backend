@@ -16,9 +16,7 @@ public class Imagen {
 	@GeneratedValue( strategy=GenerationType.AUTO )
 	private int id;
 	private String imagen;
-	@ManyToOne
-    @JoinColumn(name = "publicacion", nullable = false, updatable = false)
-	private Publicacion publicacion;
+	private int publicacion;
 	
 	public int getId() {
 		return id;
@@ -32,10 +30,11 @@ public class Imagen {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-	public Publicacion getIdPublicacion() {
+	public int getPublicacion() {
 		return publicacion;
 	}
-	public void setIdPublicacion(Publicacion idPublicacion) {
-		this.publicacion = idPublicacion;
+	public void setPublicacion(int publicacion) {
+		this.publicacion = publicacion;
 	}
+	
 }

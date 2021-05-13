@@ -19,33 +19,22 @@ public class Publicacion {
 	
 	@Id
 	@GeneratedValue( strategy=GenerationType.AUTO )
-	private int idPublicacion;
+	private int idpublicacion;
 	private Date fecha;
 	private String titulo;
 	private String description;
 	private int precio;
 	private String ciudad;
-	@ManyToOne
-    @JoinColumn(name = "tipoProducto", nullable = false, updatable = false)
-	private Producto tipoProducto;
-	@ManyToOne
-    @JoinColumn(name = "tipoPublicacion", nullable = false, updatable = false)
-	private TipoPublicacion tipoPublicacion;
-	@ManyToOne
-    @JoinColumn(name = "usuario", nullable = false, updatable = false)
-	private Usuario usuario;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "publicacion")
-	private List<Comentario> cometarios; 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "publicacion")
-	private List<Imagen> imagenes; 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "publicacion")
-	private List<PublicacionGusto> publicacionGustos;	
+	private int tipoproducto;
+	private int tipopublicacion;
+	private String usuario;
+	private int estado;
 	
-	public int getIdPublicacion() {
-		return idPublicacion;
+	public int getIdpublicacion() {
+		return idpublicacion;
 	}
-	public void setIdPublicacion(int idPublicacion) {
-		this.idPublicacion = idPublicacion;
+	public void setIdpublicacion(int idpublicacion) {
+		this.idpublicacion = idpublicacion;
 	}
 	public Date getFecha() {
 		return fecha;
@@ -77,28 +66,30 @@ public class Publicacion {
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
-	public TipoPublicacion getIdTipoPublicacion() {
-		return tipoPublicacion;
+	
+	public int getTipopublicacion() {
+		return tipopublicacion;
 	}
-	public void setIdTipoPublicacion(TipoPublicacion tipoPublicacion) {
-		this.tipoPublicacion = tipoPublicacion;
+	public void setTipopublicacion(int tipopublicacion) {
+		this.tipopublicacion = tipopublicacion;
 	}
-	public Producto getTipoProducto() {
-		return tipoProducto;
+	
+	public int getTipoproducto() {
+		return tipoproducto;
 	}
-	public void setTipoProducto(Producto tipoProducto) {
-		this.tipoProducto = tipoProducto;
+	public void setTipoproducto(int tipoproducto) {
+		this.tipoproducto = tipoproducto;
 	}
-	public Usuario getUsuario() {
+	public String getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
-	public List<Comentario> getCometarios() {
-		return cometarios;
+	public int getEstado() {
+		return estado;
 	}
-	public void setCometarios(List<Comentario> cometarios) {
-		this.cometarios = cometarios;
+	public void setEstado(int estado) {
+		this.estado = estado;
 	}
 }

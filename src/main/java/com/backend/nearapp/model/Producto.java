@@ -20,25 +20,15 @@ public class Producto {
 	@GeneratedValue( strategy=GenerationType.AUTO )
 	private int id;
 	private String nombre;
-	@ManyToOne
-    @JoinColumn(name = "categoria", nullable = false, updatable = false)
-	private Categoria categoria;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoProducto")
-	private List<Publicacion> publicacion; 
+	private int categoria;
 	
-	public Categoria getCategoria() {
+	public int getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(int categoria) {
 		this.categoria = categoria;
 	}
 	
-	public List<Publicacion> getPublicacion() {
-		return publicacion;
-	}
-	public void setPublicacion(List<Publicacion> publicacion) {
-		this.publicacion = publicacion;
-	}
 	public int getId() {
 		return id;
 	}
