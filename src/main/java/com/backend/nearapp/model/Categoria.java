@@ -17,8 +17,6 @@ public class Categoria {
 	@GeneratedValue( strategy=GenerationType.AUTO )
 	private int id;
 	private String nombre;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "categoria")
-	private List<Producto> producto;
 	
 	public int getId() {
 		return id;
