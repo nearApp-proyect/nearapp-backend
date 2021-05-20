@@ -1,6 +1,7 @@
 package com.backend.nearapp.model;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,7 +30,15 @@ public class Publicacion {
 	private int tipopublicacion;
 	private String usuario;
 	private int estado;
+	private int descuento;
+	private Time hora;
 	
+	public int getDescuento() {
+		return descuento;
+	}
+	public void setDescuento(int descuento) {
+		this.descuento = descuento;
+	}
 	public int getIdpublicacion() {
 		return idpublicacion;
 	}
@@ -91,5 +100,11 @@ public class Publicacion {
 	}
 	public void setEstado(int estado) {
 		this.estado = estado;
+	}
+	public Time getHora() {
+		return hora;
+	}
+	public void setHora(Time hora) {
+		this.hora = hora;
 	}
 }

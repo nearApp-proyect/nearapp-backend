@@ -46,5 +46,36 @@ public class PublicacionServicesImpl implements PublicacionServices {
 			throw new NearAppServicesException(ex.getMessage(), ex);
 		}
 	}
+	
+	@Override
+	public List<Publicacion> getAllPublicacionNormal()
+			throws NearAppServicesException {
+		try{
+			return pubRepo.getAllPublicacionNormal();
+		}catch(Exception ex){
+			throw new NearAppServicesException(ex.getMessage(), ex);
+		}
+	}
+
+	@Override
+	public List<Publicacion> getAllPublicacionRapida()
+			throws NearAppServicesException {
+		try{
+			return pubRepo.getAllPublicacionRapida();
+		}catch(Exception ex){
+			throw new NearAppServicesException(ex.getMessage(), ex);
+		}
+	}
+
+	@Override
+	public Publicacion updatePublication(Publicacion publicacion)
+			throws NearAppServicesException {
+		try{
+			return pubRepo.setPublicacion(publicacion.getDescuento(), publicacion.getIdpublicacion());
+		}catch(Exception ex){
+			throw new NearAppServicesException(ex.getMessage(), ex);
+		}
+	}
+
 }
 

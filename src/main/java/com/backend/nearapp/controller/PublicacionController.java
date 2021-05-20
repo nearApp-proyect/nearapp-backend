@@ -33,6 +33,16 @@ public class PublicacionController {
 	}
 	
 	@CrossOrigin(origins={"http://localhost:3000","https://frontendnearapp.herokuapp.com/"})
+	@RequestMapping(method = RequestMethod.PUT,path="/update")
+	public ResponseEntity<Publicacion> updatePublicacion(@RequestBody Publicacion publicacion){
+		try{
+			return ResponseEntity.ok(PubliServ.updatePublication(publicacion));
+		}catch(Exception e){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@CrossOrigin(origins={"http://localhost:3000","https://frontendnearapp.herokuapp.com/"})
 	@RequestMapping(method = RequestMethod.GET,path="/user/{id}")
 	public ResponseEntity<List<Publicacion>> getAllPublicacionUser(@PathVariable(value="id") String nickname){
 		try{
@@ -47,6 +57,26 @@ public class PublicacionController {
 	public ResponseEntity<List<Publicacion>> getAllPublicacionCateg(@PathVariable(value="id") int categoria){
 		try{
 			return ResponseEntity.ok(PubliServ.getAllPublicacionCateg(categoria));
+		}catch(Exception e){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@CrossOrigin(origins={"http://localhost:3000","https://frontendnearapp.herokuapp.com/"})
+	@RequestMapping(method = RequestMethod.GET,path="/normal")
+	public ResponseEntity<List<Publicacion>> getAllPublicacionNormal(){
+		try{
+			return ResponseEntity.ok(PubliServ.getAllPublicacionNormal());
+		}catch(Exception e){
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@CrossOrigin(origins={"http://localhost:3000","https://frontendnearapp.herokuapp.com/"})
+	@RequestMapping(method = RequestMethod.GET,path="/rapida")
+	public ResponseEntity<List<Publicacion>> getAllPublicacionRapida(){
+		try{
+			return ResponseEntity.ok(PubliServ.getAllPublicacionRapida());
 		}catch(Exception e){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
