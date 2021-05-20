@@ -33,9 +33,10 @@ public class PublicacionController {
 	}
 	
 	@CrossOrigin(origins={"http://localhost:3000","https://frontendnearapp.herokuapp.com/"})
-	@RequestMapping(method = RequestMethod.PUT,path="/update")
+	@RequestMapping(method = RequestMethod.PUT,path="/descuento")
 	public ResponseEntity<Publicacion> updatePublicacion(@RequestBody Publicacion publicacion){
 		try{
+			System.out.print("entra");
 			return ResponseEntity.ok(PubliServ.updatePublication(publicacion));
 		}catch(Exception e){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

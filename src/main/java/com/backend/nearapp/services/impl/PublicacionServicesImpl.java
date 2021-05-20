@@ -71,7 +71,8 @@ public class PublicacionServicesImpl implements PublicacionServices {
 	public Publicacion updatePublication(Publicacion publicacion)
 			throws NearAppServicesException {
 		try{
-			return pubRepo.setPublicacion(publicacion.getDescuento(), publicacion.getIdpublicacion());
+			pubRepo.setPublicacion(publicacion.getDescuento(), publicacion.getIdpublicacion());
+			return publicacion;
 		}catch(Exception ex){
 			throw new NearAppServicesException(ex.getMessage(), ex);
 		}
