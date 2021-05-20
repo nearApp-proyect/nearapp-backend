@@ -35,6 +35,6 @@ public interface PublicacionRepo extends JpaRepository<Publicacion, Integer>{
 	@Transactional
     @Modifying
     @Query("update Publicacion p set p.descuento = ?1 where p.idpublicacion =?2")
-	Publicacion setPublicacion(int descuento,int id);
+	void setPublicacion(int descuento,int id);
 
 }
